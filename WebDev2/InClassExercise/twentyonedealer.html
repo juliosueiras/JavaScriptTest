@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Week 2: In-class exercise
+Justin Alerta
+
+This program simulates drawing the dealer's hand in a game of 21.
+Implement the program by adding JavaScript which:
+1) Creates a variable that holds the dealer's total
+2) Repeatedly do the following until the dealer's total is at least 17:
+    a) "Draw a card" - generate a random number between 1 and 10
+    b) Add the card value to the total
+    c) Display the dealer's total in an alert dialog
+3) Display text by changing the innerHTML property of the <h1> element. The text should be center-aligned.
+    a) If the dealer's total is greater than 21, display "Dealer busts!" in red
+    b) Otherwise, display "Dealer has XX" in green (where XX is the total)
+-->
+<html>
+    <head>
+        <title>21 Dealer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <h1 id='handtotal'></h1>
+        <script type='text/javascript'>
+
+            var total = 0;
+            var dealerTotal = 0;
+            var randomCard;
+            var handtotalElement = document.getElementById("handtotal");
+
+            handtotalElement.style.textAlign = "center";
+
+            do
+            {
+                randomCard = Math.floor(Math.random() * 10 + 1);
+                dealerTotal += randomCard;
+
+                alert("The Dealer's total is " + dealerTotal);
+            } while (dealerTotal < 17);
+
+            if (dealerTotal > 21)
+            {
+                handtotalElement.style.color = "red";
+                handtotalElement.innerHTML = "Dealer busts!";
+            }
+            else
+            {
+                handtotalElement.style.color = "green";
+                handtotalElement.innerHTML = "Dealer has " + dealerTotal;
+            }
+
+
+        </script>
+    </body>
+</html>

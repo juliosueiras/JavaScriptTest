@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game</title>
+    <script>
+        var randomNumber = Math.floor(Math.random() * 100 + 1);
+
+        for (var i = 10; i > 0; i--)
+        {
+            do{
+                var userGuess = prompt("Please enter your guess(You have " + i + " chances left");
+
+                if(isNaN(Number(userGuess)))
+                {
+                alert("Please enter a number");
+                }
+            else if(userGuess == '')
+                {
+                    alert("Is empty");
+                }
+            }while(isNaN(Number(userGuess)) || userGuess == '')
+
+            if (userGuess == randomNumber)
+            {
+                alert("Congratulation, you were right, the number was " + randomNumber);
+                break;
+            }
+            else if(userGuess < randomNumber)
+            {
+                alert("Your guess is too low");
+            }
+            else if(userGuess > randomNumber)
+            {
+                alert("Your guess is too high");
+            }
+
+        }
+        if(userGuess != randomNumber)
+        {
+            alert("Sorry, the number is " + randomNumber);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
